@@ -5,15 +5,15 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CustomersModule } from './modules/customers/customer.module';
 import { ProductsModule } from './modules/products/products.module';
 import { OrdersModule } from './modules/orders/orders.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     CustomersModule,
     ProductsModule,
     OrdersModule,
-    MongooseModule.forRoot(
-      'mongodb+srv://myilmaz:RytI8kQasxewz5jh7p1e@nest-cluster.1dexpms.mongodb.net/?retryWrites=true&w=majority',
-    ),
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.DATABASE_URL),
   ],
   controllers: [AppController],
   providers: [AppService],
