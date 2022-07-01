@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { Customer } from 'src/modules/customers/dto/customer.dto';
 import { InjectModel } from '@nestjs/mongoose';
