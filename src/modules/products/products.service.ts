@@ -33,7 +33,8 @@ export class ProductsService {
     try {
       const newProduct = new this.productModel(product);
       await newProduct.save();
-      console.log(newProduct);
+      //how got this id?
+      console.log(newProduct.id);
       return newProduct;
     } catch (error) {
       console.log(error.message);

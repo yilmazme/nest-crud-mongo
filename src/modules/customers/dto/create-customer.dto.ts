@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-class CartItem {
+class Order {
   @ApiProperty()
   id: string;
   @ApiProperty()
@@ -19,9 +19,9 @@ export class CustomerCreateDto {
   age: number;
   @ApiProperty({
     isArray: true,
-    type: CartItem,
+    type: Order,
   })
-  orders: CartItem[];
+  orders?: Order[];
   @ApiProperty()
   photoFile: string;
 }

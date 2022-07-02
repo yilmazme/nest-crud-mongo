@@ -4,11 +4,11 @@ export class Customer {
   password: string;
   token: string;
   age: number;
-  orders: CartItem[];
+  orders?: Order[];
   photoFile: string;
 }
 
-class CartItem {
+class Order {
   id: string;
   amount: number;
 }
