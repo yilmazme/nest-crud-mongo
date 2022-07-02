@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Customer } from 'src/modules/customers/dto/customer.dto';
+import { CustomerCreateDto } from 'src/modules/customers/dto/create-customer.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { Customer } from './entities/customer.entity';
+import { CustomerUpdateDto } from './dto/update-customer.dto';
 
 @Injectable()
 export class CustomersService {
@@ -21,7 +23,7 @@ export class CustomersService {
     }
   }
 
-  async addCustomer(customer: Customer): Promise<Customer | string> {
+  async addCustomer(customer: CustomerCreateDto): Promise<Customer | string> {
     const sameCustomer = await this.customerModel
       .findOne({ email: customer.email })
       .exec();
@@ -47,10 +49,10 @@ export class CustomersService {
     }
   }
 
-  async updateOne(id: string, customer: Customer): Promise<string> {
+  async updateOne(id: string, customer: CustomerUpdateDto): Promise<Customer> {
     await this.customerModel.findOneAndUpdate({ _id: id }, customer, {
       new: true,
     });
-    return `customer with id: ${id} updated`;
+    return customer;
   }
 }

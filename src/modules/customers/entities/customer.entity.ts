@@ -4,7 +4,11 @@ export class Customer {
   password: string;
   token: string;
   age: number;
-  cart: [{ id: string; amount: number }];
-  orders: [{ id: string; amount: number }];
+  orders: CartItem[];
   photoFile: string;
+}
+
+class CartItem {
+  id: string;
+  amount: number;
 }

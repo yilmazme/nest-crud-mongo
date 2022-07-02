@@ -6,7 +6,6 @@ export const CustomerSchema = new mongoose.Schema({
   password: { type: String, required: true },
   token: String,
   age: Number,
-  cart: [{ id: String, amount: Number }],
   orders: [{ id: String, amount: Number }],
   photoFile: String,
 });
